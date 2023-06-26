@@ -296,32 +296,191 @@ def logging_csv(number, mode, landmark_list, point_history_list):
 
 def draw_landmarks(image, landmark_point):
     if len(landmark_point) > 0:
-        colors = [(0, 0, 0), (255, 255, 255)]
-        lines = [[2, 3, 3, 4],  # Thumb
-                 [5, 6, 6, 7, 7, 8],  # Index finger
-                 [9, 10, 10, 11, 11, 12],  # Middle finger
-                 [13, 14, 14, 15, 15, 16],  # Ring finger
-                 [17, 18, 18, 19, 19, 20],  # Little finger
-                 [0, 1, 1, 2, 2, 5, 5, 9, 9, 13, 13, 17, 17, 0]]  # Palm
+        # Thumb
+        cv.line(image, tuple(landmark_point[2]), tuple(landmark_point[3]),
+                (0, 0, 0), 6)
+        cv.line(image, tuple(landmark_point[2]), tuple(landmark_point[3]),
+                (255, 255, 255), 2)
+        cv.line(image, tuple(landmark_point[3]), tuple(landmark_point[4]),
+                (0, 0, 0), 6)
+        cv.line(image, tuple(landmark_point[3]), tuple(landmark_point[4]),
+                (255, 255, 255), 2)
 
-        for line_indices in lines:
-            for i in range(0, len(line_indices), 2):
-                start_index = line_indices[i]
-                end_index = line_indices[i + 1]
-                line_color = colors[i % 2]
-                cv.line(image, tuple(landmark_point[start_index]), tuple(landmark_point[end_index]), line_color, 6)
-                cv.line(image, tuple(landmark_point[start_index]), tuple(landmark_point[end_index]), colors[1], 2)
+        # Index finger
+        cv.line(image, tuple(landmark_point[5]), tuple(landmark_point[6]),
+                (0, 0, 0), 6)
+        cv.line(image, tuple(landmark_point[5]), tuple(landmark_point[6]),
+                (255, 255, 255), 2)
+        cv.line(image, tuple(landmark_point[6]), tuple(landmark_point[7]),
+                (0, 0, 0), 6)
+        cv.line(image, tuple(landmark_point[6]), tuple(landmark_point[7]),
+                (255, 255, 255), 2)
+        cv.line(image, tuple(landmark_point[7]), tuple(landmark_point[8]),
+                (0, 0, 0), 6)
+        cv.line(image, tuple(landmark_point[7]), tuple(landmark_point[8]),
+                (255, 255, 255), 2)
 
-        key_points = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20]
-        key_point_sizes = [5, 5, 5, 5, 8, 5, 5, 5, 8, 5, 5, 5, 8, 5, 5, 5, 8, 5, 5, 5, 8]
+        # Middle finger
+        cv.line(image, tuple(landmark_point[9]), tuple(landmark_point[10]),
+                (0, 0, 0), 6)
+        cv.line(image, tuple(landmark_point[9]), tuple(landmark_point[10]),
+                (255, 255, 255), 2)
+        cv.line(image, tuple(landmark_point[10]), tuple(landmark_point[11]),
+                (0, 0, 0), 6)
+        cv.line(image, tuple(landmark_point[10]), tuple(landmark_point[11]),
+                (255, 255, 255), 2)
+        cv.line(image, tuple(landmark_point[11]), tuple(landmark_point[12]),
+                (0, 0, 0), 6)
+        cv.line(image, tuple(landmark_point[11]), tuple(landmark_point[12]),
+                (255, 255, 255), 2)
 
-        for index in key_points:
-            landmark = landmark_point[index]
-            size = key_point_sizes[index]
-            cv.circle(image, (landmark[0], landmark[1]), size, colors[1], -1)
-            cv.circle(image, (landmark[0], landmark[1]), size, colors[0], 1)
+        # Ring finger
+        cv.line(image, tuple(landmark_point[13]), tuple(landmark_point[14]),
+                (0, 0, 0), 6)
+        cv.line(image, tuple(landmark_point[13]), tuple(landmark_point[14]),
+                (255, 255, 255), 2)
+        cv.line(image, tuple(landmark_point[14]), tuple(landmark_point[15]),
+                (0, 0, 0), 6)
+        cv.line(image, tuple(landmark_point[14]), tuple(landmark_point[15]),
+                (255, 255, 255), 2)
+        cv.line(image, tuple(landmark_point[15]), tuple(landmark_point[16]),
+                (0, 0, 0), 6)
+        cv.line(image, tuple(landmark_point[15]), tuple(landmark_point[16]),
+                (255, 255, 255), 2)
+
+        # Little finger
+        cv.line(image, tuple(landmark_point[17]), tuple(landmark_point[18]),
+                (0, 0, 0), 6)
+        cv.line(image, tuple(landmark_point[17]), tuple(landmark_point[18]),
+                (255, 255, 255), 2)
+        cv.line(image, tuple(landmark_point[18]), tuple(landmark_point[19]),
+                (0, 0, 0), 6)
+        cv.line(image, tuple(landmark_point[18]), tuple(landmark_point[19]),
+                (255, 255, 255), 2)
+        cv.line(image, tuple(landmark_point[19]), tuple(landmark_point[20]),
+                (0, 0, 0), 6)
+        cv.line(image, tuple(landmark_point[19]), tuple(landmark_point[20]),
+                (255, 255, 255), 2)
+
+        # Palm
+        cv.line(image, tuple(landmark_point[0]), tuple(landmark_point[1]),
+                (0, 0, 0), 6)
+        cv.line(image, tuple(landmark_point[0]), tuple(landmark_point[1]),
+                (255, 255, 255), 2)
+        cv.line(image, tuple(landmark_point[1]), tuple(landmark_point[2]),
+                (0, 0, 0), 6)
+        cv.line(image, tuple(landmark_point[1]), tuple(landmark_point[2]),
+                (255, 255, 255), 2)
+        cv.line(image, tuple(landmark_point[2]), tuple(landmark_point[5]),
+                (0, 0, 0), 6)
+        cv.line(image, tuple(landmark_point[2]), tuple(landmark_point[5]),
+                (255, 255, 255), 2)
+        cv.line(image, tuple(landmark_point[5]), tuple(landmark_point[9]),
+                (0, 0, 0), 6)
+        cv.line(image, tuple(landmark_point[5]), tuple(landmark_point[9]),
+                (255, 255, 255), 2)
+        cv.line(image, tuple(landmark_point[9]), tuple(landmark_point[13]),
+                (0, 0, 0), 6)
+        cv.line(image, tuple(landmark_point[9]), tuple(landmark_point[13]),
+                (255, 255, 255), 2)
+        cv.line(image, tuple(landmark_point[13]), tuple(landmark_point[17]),
+                (0, 0, 0), 6)
+        cv.line(image, tuple(landmark_point[13]), tuple(landmark_point[17]),
+                (255, 255, 255), 2)
+        cv.line(image, tuple(landmark_point[17]), tuple(landmark_point[0]),
+                (0, 0, 0), 6)
+        cv.line(image, tuple(landmark_point[17]), tuple(landmark_point[0]),
+                (255, 255, 255), 2)
+
+    # Key Points
+    for index, landmark in enumerate(landmark_point):
+        if index == 0:  # 手首1
+            cv.circle(image, (landmark[0], landmark[1]), 5, (255, 255, 255),
+                      -1)
+            cv.circle(image, (landmark[0], landmark[1]), 5, (0, 0, 0), 1)
+        if index == 1:  # 手首2
+            cv.circle(image, (landmark[0], landmark[1]), 5, (255, 255, 255),
+                      -1)
+            cv.circle(image, (landmark[0], landmark[1]), 5, (0, 0, 0), 1)
+        if index == 2:  # 親指：付け根
+            cv.circle(image, (landmark[0], landmark[1]), 5, (255, 255, 255),
+                      -1)
+            cv.circle(image, (landmark[0], landmark[1]), 5, (0, 0, 0), 1)
+        if index == 3:  # 親指：第1関節
+            cv.circle(image, (landmark[0], landmark[1]), 5, (255, 255, 255),
+                      -1)
+            cv.circle(image, (landmark[0], landmark[1]), 5, (0, 0, 0), 1)
+        if index == 4:  # 親指：指先
+            cv.circle(image, (landmark[0], landmark[1]), 8, (255, 255, 255),
+                      -1)
+            cv.circle(image, (landmark[0], landmark[1]), 8, (0, 0, 0), 1)
+        if index == 5:  # 人差指：付け根
+            cv.circle(image, (landmark[0], landmark[1]), 5, (255, 255, 255),
+                      -1)
+            cv.circle(image, (landmark[0], landmark[1]), 5, (0, 0, 0), 1)
+        if index == 6:  # 人差指：第2関節
+            cv.circle(image, (landmark[0], landmark[1]), 5, (255, 255, 255),
+                      -1)
+            cv.circle(image, (landmark[0], landmark[1]), 5, (0, 0, 0), 1)
+        if index == 7:  # 人差指：第1関節
+            cv.circle(image, (landmark[0], landmark[1]), 5, (255, 255, 255),
+                      -1)
+            cv.circle(image, (landmark[0], landmark[1]), 5, (0, 0, 0), 1)
+        if index == 8:  # 人差指：指先
+            cv.circle(image, (landmark[0], landmark[1]), 8, (255, 255, 255),
+                      -1)
+            cv.circle(image, (landmark[0], landmark[1]), 8, (0, 0, 0), 1)
+        if index == 9:  # 中指：付け根
+            cv.circle(image, (landmark[0], landmark[1]), 5, (255, 255, 255),
+                      -1)
+            cv.circle(image, (landmark[0], landmark[1]), 5, (0, 0, 0), 1)
+        if index == 10:  # 中指：第2関節
+            cv.circle(image, (landmark[0], landmark[1]), 5, (255, 255, 255),
+                      -1)
+            cv.circle(image, (landmark[0], landmark[1]), 5, (0, 0, 0), 1)
+        if index == 11:  # 中指：第1関節
+            cv.circle(image, (landmark[0], landmark[1]), 5, (255, 255, 255),
+                      -1)
+            cv.circle(image, (landmark[0], landmark[1]), 5, (0, 0, 0), 1)
+        if index == 12:  # 中指：指先
+            cv.circle(image, (landmark[0], landmark[1]), 8, (255, 255, 255),
+                      -1)
+            cv.circle(image, (landmark[0], landmark[1]), 8, (0, 0, 0), 1)
+        if index == 13:  # 薬指：付け根
+            cv.circle(image, (landmark[0], landmark[1]), 5, (255, 255, 255),
+                      -1)
+            cv.circle(image, (landmark[0], landmark[1]), 5, (0, 0, 0), 1)
+        if index == 14:  # 薬指：第2関節
+            cv.circle(image, (landmark[0], landmark[1]), 5, (255, 255, 255),
+                      -1)
+            cv.circle(image, (landmark[0], landmark[1]), 5, (0, 0, 0), 1)
+        if index == 15:  # 薬指：第1関節
+            cv.circle(image, (landmark[0], landmark[1]), 5, (255, 255, 255),
+                      -1)
+            cv.circle(image, (landmark[0], landmark[1]), 5, (0, 0, 0), 1)
+        if index == 16:  # 薬指：指先
+            cv.circle(image, (landmark[0], landmark[1]), 8, (255, 255, 255),
+                      -1)
+            cv.circle(image, (landmark[0], landmark[1]), 8, (0, 0, 0), 1)
+        if index == 17:  # 小指：付け根
+            cv.circle(image, (landmark[0], landmark[1]), 5, (255, 255, 255),
+                      -1)
+            cv.circle(image, (landmark[0], landmark[1]), 5, (0, 0, 0), 1)
+        if index == 18:  # 小指：第2関節
+            cv.circle(image, (landmark[0], landmark[1]), 5, (255, 255, 255),
+                      -1)
+            cv.circle(image, (landmark[0], landmark[1]), 5, (0, 0, 0), 1)
+        if index == 19:  # 小指：第1関節
+            cv.circle(image, (landmark[0], landmark[1]), 5, (255, 255, 255),
+                      -1)
+            cv.circle(image, (landmark[0], landmark[1]), 5, (0, 0, 0), 1)
+        if index == 20:  # 小指：指先
+            cv.circle(image, (landmark[0], landmark[1]), 8, (255, 255, 255),
+                      -1)
+            cv.circle(image, (landmark[0], landmark[1]), 8, (0, 0, 0), 1)
 
     return image
+
 
 def draw_bounding_rect(use_brect, image, brect):
     if use_brect:

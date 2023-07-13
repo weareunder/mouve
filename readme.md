@@ -22,11 +22,8 @@ This project implements hand gesture control using computer vision techniques an
 ### Installation
 
 1. Clone the repository:
-
-git clone <https://github.com/your-username/hand-gesture-control.git>
-
 2. Install the required Python packages:
-pip install -r requirements.txt
+    `pip install -r requirements.txt`
 
 ### Usage
 

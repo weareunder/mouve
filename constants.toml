@@ -1,0 +1,6 @@
+wCam = 640
+hCam = 480
+hmin = 50
+hmax = 200
+color = [0, 215, 255]
+tipIds = [4, 8, 12, 16, 20]

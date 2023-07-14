@@ -11,7 +11,8 @@ This project implements hand gesture control using computer vision techniques an
 - Cursor control: Control the cursor movement on the screen using hand gestures.
 
 ## Getting Started
-install `anaconda` on mac:
+install `anaconda` on mac and run `source ~/.zshrc`  to reload your paths file:
+
 `<https://repo.anaconda.com/archive/Anaconda3-2023.07-0-MacOSX-arm64.pkg>`
 
 ### Prerequisites
@@ -24,7 +25,7 @@ install `anaconda` on mac:
 ### Installation
 
 1. Clone the repository:
-2. Create a new virtual env
+2. Create a new virtual env in your terminal
    `conda create -n dl python=3.10 anaconda`
 3. activate the env
    `conda activate dl`

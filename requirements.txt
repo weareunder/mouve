@@ -1,3 +1,5 @@
-tensorflow
+tensorflow-macos
+tensorflow-metal
 mediapipe
 opencv-python
+pyautogui

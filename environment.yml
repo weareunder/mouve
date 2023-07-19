@@ -1,4 +1,4 @@
-name: dl2
+name: dl
 channels:
   - apple
   - defaults

@@ -139,6 +139,8 @@ if __name__ == '__main__':
         success, img = cap.read()
         img = detector.findHands(img)
         lmList = detector.findPosition(img, draw=False)
+        # img = np.zeros_like(img)
+
         fingers = []
 
         if len(lmList) != 0:

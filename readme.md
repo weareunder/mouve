@@ -6,9 +6,7 @@ This project implements hand gesture control using computer vision techniques an
 
 - Hand detection and tracking: The system uses the Mediapipe library to detect and track the user's hand in real-time.
 - Gesture recognition: It recognizes different hand gestures based on the positions and movements of the fingers.
-- Scroll control: You can scroll up and down by making specific hand gestures.
-- Volume control: Adjust the system volume by moving your hand up and down.
-- Cursor control: Control the cursor movement on the screen using hand gestures.
+- ...
 
 ## Getting Started
 install `anaconda` on mac and run `source ~/.zshrc`  to reload your paths file:
@@ -43,3 +41,33 @@ python app.py
 
 - Constants such as camera resolution and gesture recognition thresholds can be adjusted in the `constants.toml` file.
 - Additional gestures and corresponding actions can be added by modifying the `handle_scroll`, `handle_volume`, and `handle_cursor` functions in the script.
+
+### core functionalities
+if you're diving in, you'll want to understand the heart of our system, controller.py.
+
+### instances: `handmajor` and `handminor`
+these instances use deep learning (dl) to accurately gauge and interpret hand gestures captured via the camera. they set the stage for more advanced functionalities in the future.
+
+### method: `start`
+this method is responsible for the core operations:
+1. effective video frame handling: it discards empty frames intelligently.
+2. advanced image processing: optimizes images for gesture analysis.
+3. dynamic gesture management: recognizes and adapts to various gestures effectively.
+4. deeper into the process
+5. once start identifies hand landmarks, it collaborates with handmajor and handminor to understand the gestures being performed.
+
+### gesture classification
+the `set_finger_state` method helps in distinguishing the current state of the hand.
+
+### gesture execution
+the `get_gesture` method retrieves and directs the recognized gesture for appropriate control.
+
+### gestures we support
+the system currently supports the following gestures:
+
+1. left click
+2. right click
+3. drag and drop
+4. double click
+5. neutral
+6. scroll

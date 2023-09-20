@@ -174,47 +174,7 @@ class HandRecog:
 
 # Executes commands according to detected gestures
 class Controller:
-    """
-    Executes commands according to detected gestures.
-
-    Attributes
-    ----------
-    tx_old : int
-        previous mouse location x coordinate
-    ty_old : int
-        previous mouse location y coordinate
-    flag : bool
-        true if V gesture is detected
-    grabflag : bool
-        true if FIST gesture is detected
-    pinchmajorflag : bool
-        true if PINCH gesture is detected through MAJOR hand,
-        on x-axis 'Controller.changesystembrightness', 
-        on y-axis 'Controller.changesystemvolume'.
-    pinchminorflag : bool
-        true if PINCH gesture is detected through MINOR hand,
-        on x-axis 'Controller.scrollHorizontal', 
-        on y-axis 'Controller.scrollVertical'.
-    pinchstartxcoord : int
-        x coordinate of hand landmark when pinch gesture is started.
-    pinchstartycoord : int
-        y coordinate of hand landmark when pinch gesture is started.
-    pinchdirectionflag : bool
-        true if pinch gesture movment is along x-axis,
-        otherwise false
-    prevpinchlv : int
-        stores quantized magnitued of prev pinch gesture displacment, from 
-        starting position
-    pinchlv : int
-        stores quantized magnitued of pinch gesture displacment, from 
-        starting position
-    framecount : int
-        stores no. of frames since 'pinchlv' is updated.
-    prev_hand : tuple
-        stores (x, y) coordinates of hand in previous frame.
-    pinch_threshold : float
-        step size for quantization of 'pinchlv'.
-    """
+    
 
     tx_old = 0
     ty_old = 0
@@ -423,36 +383,8 @@ class Controller:
                 Controller.pinchmajorflag = True
             Controller.pinch_control(hand_result,Controller.changesystembrightness, Controller.changesystemvolume)
         
-'''
-----------------------------------------  Main Class  ----------------------------------------
-    Entry point of Gesture Controller
-'''
-
-
 class GestureController:
-    """
-    Handles camera, obtain landmarks from mediapipe, entry point
-    for whole program.
 
-    Attributes
-    ----------
-    gc_mode : int
-        indicates weather gesture controller is running or not,
-        1 if running, otherwise 0.
-    cap : Object
-        object obtained from cv2, for capturing video frame.
-    CAM_HEIGHT : int
-        highet in pixels of obtained frame from camera.
-    CAM_WIDTH : int
-        width in pixels of obtained frame from camera.
-    hr_major : Object of 'HandRecog'
-        object representing major hand.
-    hr_minor : Object of 'HandRecog'
-        object representing minor hand.
-    dom_hand : bool
-        True if right hand is domaniant hand, otherwise False.
-        default True.
-    """
     gc_mode = 0
     cap = None
     CAM_HEIGHT = None
